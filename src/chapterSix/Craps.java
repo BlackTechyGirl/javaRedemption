@@ -19,21 +19,14 @@ public class Craps {
 
         int sumOfDice = rollDice();
 
-        switch (sumOfDice){
-            case SEVEN:
-            case YO_LEVEN:
-                gameStatus = Status.WON;
-                break;
-            case SNAKE_EYES:
-            case TREY:
-            case BOX_CARS:
-                gameStatus = Status.LOST;
-                break;
-            default:
+        switch (sumOfDice) {
+            case SEVEN, YO_LEVEN -> gameStatus = Status.WON;
+            case SNAKE_EYES, TREY, BOX_CARS -> gameStatus = Status.LOST;
+            default -> {
                 gameStatus = Status.CONTINUE;
                 myPoint = sumOfDice;
                 System.out.printf("Point is %d%n", myPoint);
-                break;
+            }
         }
 
         while(gameStatus == Status.CONTINUE){
