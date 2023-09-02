@@ -6,25 +6,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 //import org.junit.Test;
 
 public class AccountTest{
-    private Account account;
+    Account account;
 
     @BeforeEach
-    public void setThisUp(){
-        account = new Account("Martha", 5000);
+    public void setUp(){
+        account = new Account("Martha", 1000);
     }
-
     @Test
-    void testThatICanDeposit(){
+    void testDeposit(){
         account.deposit(500);
-        assertEquals(5500, account.getBalance());
-
-    }
-    @Test
-    void testThatICanWithdraw(){
-        account.withdraw(4500);
         assertEquals(500, account.getBalance());
     }
 
-
+    @Test
+    void testWithdraw(){
+        account.withdraw(500);
+        assertEquals(500, account.getBalance());
+    }
+    @Test
+    void testThatUserEnterInvalidInput(){
+        account.withdraw(500);
+        account.withdraw(-500);
+        assertEquals(500, account.getBalance());
+    }
 
 }

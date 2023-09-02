@@ -8,7 +8,7 @@ public class Car {
     public Car(String model, String year, double price) {
         this.model = model;
         this.year = year;
-        this.price = price;
+        if(price > 0) this.price = price;
     }
 
     public String getModel() {
@@ -32,17 +32,6 @@ public class Car {
     }
 
     public void setPrice(double price) {
-        if (price > 0.0) {
-            this.price = price;
-        }
-    }
-    public double fivePercentDiscount(){
-       double discount = (price*5)/100;
-       return price-discount;
-
-    }
-    public double sevenPercentDiscount(){
-        double discount = (price*7)/100;
-        return (price - discount);
+        if (price > 0) this.price = price;
     }
 }

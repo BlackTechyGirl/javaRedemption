@@ -1,35 +1,34 @@
 package chapterThree;
 
 public class PetrolPurchase {
-    private String stationLocation;
-    private String petrolType;
+    private String location;
+    private String type;
     private int quantity;
-    private double pricePerLiter;
+    private double price;
     private double percentageDiscount;
 
-    public PetrolPurchase(String stationLocation, String petrolType,
-                          int quantity, double pricePerLiter, double percentageDiscount){
-        this.stationLocation = stationLocation;
-        this.petrolType = petrolType;
+    public PetrolPurchase(String location, String type, int quantity, double price, double percentageDiscount) {
+        this.location = location;
+        this.type = type;
         this.quantity = quantity;
-        this.pricePerLiter = pricePerLiter;
+        this.price = price;
         this.percentageDiscount = percentageDiscount;
     }
 
-    public String getStationLocation() {
-        return stationLocation;
+    public String getLocation() {
+        return location;
     }
 
-    public void setStationLocation(String stationLocation) {
-        this.stationLocation = stationLocation;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public String getPetrolType() {
-        return petrolType;
+    public String getType() {
+        return type;
     }
 
-    public void setPetrolType(String petrolType) {
-        this.petrolType = petrolType;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getQuantity() {
@@ -40,12 +39,12 @@ public class PetrolPurchase {
         this.quantity = quantity;
     }
 
-    public double getPricePerLiter() {
-        return pricePerLiter;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPricePerLiter(double pricePerLiter) {
-        this.pricePerLiter = pricePerLiter;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public double getPercentageDiscount() {
@@ -56,10 +55,7 @@ public class PetrolPurchase {
         this.percentageDiscount = percentageDiscount;
     }
 
-    public double getPurchaseAmount() {
-        double total = (quantity*pricePerLiter);
-        double discount = (total*percentageDiscount)/100;
-        return total - discount;
+    public double getPurchaseAmount(){
+        return (quantity*price)-percentageDiscount;
     }
-
 }

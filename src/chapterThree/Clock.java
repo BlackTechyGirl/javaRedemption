@@ -5,12 +5,11 @@ public class Clock {
     private int minute;
     private int second;
 
-    public Clock(int hour, int minute, int second) {
-        this.hour = hour;
-        this.minute = minute;
-        this.second = second;
+    public Clock(int hour, int minute, int second){
 
-        validateTime();
+        setHour(hour);
+        setMinute(minute);
+        setSecond(second);
     }
 
     public int getHour() {
@@ -18,8 +17,8 @@ public class Clock {
     }
 
     public void setHour(int hour) {
-        this.hour = hour;
-        validateTime();
+        if(hour>=0 && hour<=23) this.hour=hour;
+        else this.hour = 0;
     }
 
     public int getMinute() {
@@ -27,8 +26,8 @@ public class Clock {
     }
 
     public void setMinute(int minute) {
-        this.minute = minute;
-        validateTime();
+        if(minute>=0 && minute<=59) this.minute = minute;
+        else  this.minute = 0;
     }
 
     public int getSecond() {
@@ -36,19 +35,11 @@ public class Clock {
     }
 
     public void setSecond(int second) {
-        this.second = second;
-        validateTime();
-    }
-
-    private void validateTime(){
-        if(hour>23||minute>59||second>59){
-            hour =0;
-            minute =0;
-            second =0;
-        }
+        if(second>=0 && second <=59) this.second = second;
+        else this.second = 0;
     }
 
     public String displayTime() {
-        return String.format("%02d:%02d:%02d", hour,minute,second);
+        return String.format("%02d:%02d:%02d", hour, minute, second);
     }
 }
